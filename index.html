@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Piano</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+        }
+
+        body{
+            background: linear-gradient(to top, #240b42, #0a0136, #0f2027);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1{
+            text-align: center;
+            height: 10vh;
+            color: white;
+            padding-top: 10px;
+            font-family: 'Baloo Tammudu 2', cursive;
+        }
+
+        .piano{
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .white{
+            width: 6%;
+            min-width: 60px;
+            height: 70%;
+            background: white;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding-top: 24%;
+        }
+      
+        .black{
+            width: 5%;
+            height: 45%;
+            margin-left: -2.5%;
+            margin-right: -2.5%;
+            z-index: 2;
+            background: black;
+            text-align: center;
+            color: white;
+            padding-top: 14%;
+        }
+        
+
+        #changecolor{
+            position: relative;
+            bottom: 20px;
+            height: 10vh;
+            width: 10%;
+            text-align: center;
+            margin-left: 45%;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            font-weight: 600;
+            transition: all 1s;
+            font-family: 'Baloo Tammudu 2', cursive;
+        }
+        #changecolor:hover{
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Virtual Piano</h1>
+    
+    <div class="piano">
+       
+        <div class="white" id="d3" onclick="d3.play()">D3</div>
+        <div class="black" onclick="ds3.play()">D#3</div>
+        <div class="white" onclick="e3.play()">E3</div>
+        <div class="white" onclick="f3.play()">F3</div>
+        <div class="black" onclick="fs3.play()">F#3</div>
+        <div class="white" onclick="g3.play()">G3</div>
+        <div class="black" onclick="gs3.play()">G#3</div>
+        <div class="white" onclick="a3.play()">A3</div>
+        <div class="black" onclick="as3.play()">A#3</div>
+        <div class="white" onclick="b3.play()">B3</div>
+        <div class="white" onclick="c5.play()">C5</div>
+        <div class="black" onclick="cs5.play()">C#5</div>
+        <div class="white" onclick="d5.play()">D5</div>
+        <div class="black" onclick="ds5.play()">D#5</div>
+        <div class="white" onclick="e5.play()">E5</div>
+        <div class="white" onclick="f5.play()">F5</div>
+        <div class="black" onclick="fs5.play()">F#5</div>
+        <div class="white" onclick="g5.play()">G5</div>
+        
+
+    </div>
+    
+    <button id="changecolor">click me</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+
+        var d3 = new Audio()
+        d3.src = "d3.mp3"
+
+        var e3 = new Audio()
+        e3.src = "e3.mp3"
+
+        var a3 = new Audio()
+        a3.src = "a3.mp3"
+
+        var b3 = new Audio()
+        b3.src = "b3.mp3"
+
+        var f3 = new Audio()
+        f3.src = "f3.mp3"
+
+        var g3 = new Audio()
+        g3.src = "g3.mp3"
+
+        var c5 = new Audio()
+        c5.src = "c5.mp3"
+
+        var d5 = new Audio()
+        d5.src = "d5.mp3"
+
+        var e5 = new Audio()
+        e5.src = "e5.mp3"
+
+        var f5 = new Audio()
+        f5.src = "f5.mp3"
+
+        var g5 = new Audio()
+        g5.src = "g5.mp3"
+        
+        var ds3 = new Audio()
+        ds3.src = "d-3.mp3"
+
+        var fs3 = new Audio()
+        fs3.src = "f-3.mp3"
+
+        var gs3 = new Audio()
+        gs3.src = "g-3.mp3"
+
+        var as3 = new Audio()
+        as3.src = "a-3.mp3"
+
+        var cs5 = new Audio()
+        cs5.src = "c-5.mp3"
+
+        var ds5 = new Audio()
+        ds5.src = "d-5.mp3"
+
+        var fs5 = new Audio()
+        fs5.src = "f-5.mp3"
+
+
+         
+          // console.log(mycolor1);
+
+          // document.getElementById("d3").style.background = mycolor1;
+        $(document).ready(function(){
+
+         
+            $('#changecolor').click(function(){
+                var r = Math.floor(Math.random()*256);
+                var g = Math.floor(Math.random()*256);
+                var b = Math.floor(Math.random()*256);
+
+                var mycolor1= "rgb("+ b + "," + g + "," + b +")";
+                var mycolor2= "rgb("+ g + "," + r + "," + b +")";
+           
+                $('.white').css("background",mycolor1);
+                $('.black').css("background",mycolor2);
+          });
+        
+        });
+         
+    </script>
+</body>
+</html>
